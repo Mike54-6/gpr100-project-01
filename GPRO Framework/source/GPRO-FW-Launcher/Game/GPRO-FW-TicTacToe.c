@@ -66,7 +66,12 @@ int launchTicTacToe()
 
 	gs_tictactoe_reset(game);
 
+	//set middle space to X and display it
+	gs_tictactoe_setSpaceState(game, gs_tictactoe_space_open, 1, 1);
+	int middleSpace = gs_tictactoe_getSpaceState(game, 1, 1);
+	printf("%d\n", middleSpace);
 
+	//
 
 	return 0;
 }

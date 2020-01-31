@@ -20,7 +20,7 @@ enum gs_battleship_space_state
 	gs_battleship_space_open = ' ',			// space is open and unguessed
 	gs_battleship_space_miss = 'O',			// space was guessed and missed
 	gs_battleship_space_hit = 'X',            // space was guessed and hit
-	gs_battleship_space_ship = 'S',           //space is occupied by ship 
+	gs_battleship_space_ship = 'U',           //space is occupied by ship 
 
 	// states hidden from opponent player
 	gs_battleship_space_patrol2,		// 2-unit patrol boat
@@ -208,14 +208,16 @@ void pickShips1(gs_battleship game, int player)
 		}
 
 		char check = (char)gs_battleship_getSpaceState(game, player, x, y);
-		if (check == 'S' || check == 'X')
+		if (check == 'U' || check == 'X')
 		{
 			cout << "HIT" << endl;
 			gs_battleship_setSpaceState(game, gs_battleship_space_hit, player, x, y);
 			P1totalShipsHit += 1;
 			if (P1totalShipsHit == 17)
 			{
+				cout << "Player 1 wins" << endl;
 				win = 1;
+				printBoard(game, player);
 			}
 		}
 		else if (check == ' ' || check == 'O')
@@ -256,7 +258,7 @@ void pickShips2(gs_battleship game, int player)
 		}
 
 		char check = (char)gs_battleship_getSpaceState(game, player, x, y);
-		if (check == 'S' || check == 'X')
+		if (check == 'U' || check == 'X')
 		{
 			cout << "HIT" << endl;
 			gs_battleship_setSpaceState(game, gs_battleship_space_hit, player, x, y);
@@ -265,6 +267,7 @@ void pickShips2(gs_battleship game, int player)
 			{
 				cout << "Player two wins!" << endl;
 				win = 1;
+				printBoard(game, player);
 			}
 		}
 		else if (check == ' ' || check == 'O')

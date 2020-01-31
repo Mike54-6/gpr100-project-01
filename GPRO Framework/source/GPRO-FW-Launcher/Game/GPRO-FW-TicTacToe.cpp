@@ -74,10 +74,18 @@ void playGame(gs_tictactoe game)
 		int x;
 		cout << "Player 1 pick x coord: ";
 		cin >> x;
+		if (x == 100)
+		{
+			exit(0);
+		}
 
 		int y;
 		cout << "Player 1 pick y coord: ";
 		cin >> y;
+		if (y == 100)
+		{
+			exit(0);
+		}
 
 		int check = gs_tictactoe_getSpaceState(game, x, y);
 
@@ -273,7 +281,7 @@ int launchTicTacToe()
 	gs_tictactoe game;// = { 0 };
 
 	gs_tictactoe_reset(game);
-
+	cout << "Type 100 at any time to quit" << endl;
 	playGame(game);
 
 	return 0;

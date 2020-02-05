@@ -64,6 +64,7 @@ inline gs_tictactoe_index gs_tictactoe_reset(gs_tictactoe game)
 
 int checkWin(gs_tictactoe game);
 void playGame(gs_tictactoe game);
+void printBoard(gs_tictactoe game);
 
 void playGame(gs_tictactoe game)
 {
@@ -100,26 +101,12 @@ void playGame(gs_tictactoe game)
 
 		win = checkWin(game);
 		
-		//system("cls");
 		cout << "\n\n\tTic Tac Toe\n\n";
 
 		cout << "Player 1 (X)  -  Player 2 (O)" << endl << endl;
 		cout << endl;
 
-		cout << "     |     |     " << endl;
-		cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 0) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 0) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 0) << endl;
-
-		cout << "_____|_____|_____" << endl;
-		cout << "     |     |     " << endl;
-
-		cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 1) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 1) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 1) << endl;
-
-		cout << "_____|_____|_____" << endl;
-		cout << "     |     |     " << endl;
-
-		cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 2) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 2) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 2) << endl;
-
-		cout << "     |     |     " << endl << endl;
+		printBoard(game);
 
 		if (win == 1)
 		{
@@ -152,20 +139,8 @@ void playGame(gs_tictactoe game)
 		cout << "Player 1 (X)  -  Player 2 (O)" << endl << endl;
 		cout << endl;
 
-		cout << "     |     |     " << endl;
-		cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 0) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 0) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 0) << endl;
+		printBoard(game);
 
-		cout << "_____|_____|_____" << endl;
-		cout << "     |     |     " << endl;
-
-		cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 1) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 1) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 1) << endl;
-
-		cout << "_____|_____|_____" << endl;
-		cout << "     |     |     " << endl;
-
-		cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 2) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 2) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 2) << endl;
-
-		cout << "     |     |     " << endl << endl;
 
 		if (win == 1)
 		{
@@ -273,6 +248,24 @@ int checkWin(gs_tictactoe game)
 	{
 		return 0;
 	}
+}
+
+void printBoard(gs_tictactoe game)
+{
+	cout << "     |     |     " << endl;
+	cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 0) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 0) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 0) << endl;
+
+	cout << "_____|_____|_____" << endl;
+	cout << "     |     |     " << endl;
+
+	cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 1) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 1) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 1) << endl;
+
+	cout << "_____|_____|_____" << endl;
+	cout << "     |     |     " << endl;
+
+	cout << "  " << (char)gs_tictactoe_getSpaceState(game, 0, 2) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 1, 2) << "  |  " << (char)gs_tictactoe_getSpaceState(game, 2, 2) << endl;
+
+	cout << "     |     |     " << endl << endl;
 }
 
 int launchTicTacToe()

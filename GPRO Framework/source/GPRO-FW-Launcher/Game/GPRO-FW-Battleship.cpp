@@ -3,6 +3,7 @@ using namespace std;
 #include <iostream>
 #include <stdio.h>
 
+#include "GPRO-FW/common.h"
 
 //-----------------------------------------------------------------------------
 // DECLARATIONS
@@ -76,7 +77,6 @@ int P1totalShipsHit = 0;
 int P2totalShipsHit = 0;
 
 void placeShips(gs_battleship game, int num, int num2, int player);
-//int checkShip(gs_battleship game, int x, int y);
 void printBoard(gs_battleship game, int player);
 void pickShips1(gs_battleship game, int player);
 void pickShips2(gs_battleship game, int player);
@@ -84,25 +84,7 @@ void pickShips2(gs_battleship game, int player);
 int launchBattleship()
 {
 	gs_battleship game_player1;
-	//gs_battleship game_player2;
 
-	/*
-	for (int i = 0; i < 10; i++) 
-	{
-		for (int j = 0; j < 10; j++) 
-		{
-			gs_battleship_setSpaceState(game_player1, gs_battleship_space_open, 0, i, j);
-		}
-	}
-
-	for (int k = 0; k < 10; k++) 
-	{
-		for (int l = 0; l < 10; l++) 
-		{
-			gs_battleship_setSpaceState(game_player1, gs_battleship_space_open, 1, k, l);
-		}
-	}
-	*/
 	cout << "Type 100 at any time to quit" << endl;
 	cout << "Player 1 picks coordinates" << endl;
 	gs_battleship_reset(game_player1);
@@ -141,7 +123,7 @@ void printBoard(gs_battleship game, int player)
 	for (int i = 0; i < 10; i++) 
 	{
 		cout << endl;
-		for (int j = 0; j < 10; j++) \
+		for (int j = 0; j < 10; j++)
 		{
 			cout << (char)gs_battleship_getSpaceState(game, player, i, j) << ",";
 		}
@@ -169,13 +151,6 @@ void placeShips(gs_battleship game, int num, int num2, int player)
 		{
 			exit(0);
 		}
-
-		/*while (num2 == 1 && checkShip(game,x,y) == 0) 
-		{
-			cout << "Invalid move" << endl;
-			placeShips(game, num, 1);
-		}
-		num2 = 1;*/
 
 		gs_battleship_setSpaceState(game, gs_battleship_space_ship, player, x, y);
 		x = 0;

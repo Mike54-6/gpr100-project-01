@@ -4,13 +4,14 @@
 using namespace std;
 
 #include <iostream>
+#include "GPRO-FW/common.h"
 
 int launchTicTacToe();
 int launchBattleship();
 
 int main()
 {
-	cout << "Which game would you like to play? Type 1 for tic tac toe, or 2 for battleship" << endl;
+	/*cout << "Which game would you like to play? Type 1 for tic tac toe, or 2 for battleship" << endl;
 	int temp;
 	cin >> temp;
 	if (temp == 1)
@@ -20,5 +21,7 @@ int main()
 	else if (temp == 2)
 	{
 		launchBattleship();
-	}
+	}*/
+
+	drawGrid(8, 5);
 }

@@ -3,6 +3,7 @@ using namespace std;
 #include <iostream>
 #include <stdio.h>
 
+#include "GPRO-FW/common.h"
 
 //-----------------------------------------------------------------------------
 // DECLARATIONS
@@ -10,6 +11,9 @@ using namespace std;
 #define GS_TICTACTOE_PLAYERS					2
 #define GS_TICTACTOE_BOARD_WIDTH				3
 #define GS_TICTACTOE_BOARD_HEIGHT				3
+
+
+
 
 enum gs_tictactoe_space_state
 {
@@ -65,7 +69,6 @@ inline gs_tictactoe_index gs_tictactoe_reset(gs_tictactoe game)
 int checkWin(gs_tictactoe game);
 void playGame(gs_tictactoe game);
 void printBoard(gs_tictactoe game);
-
 void playGame(gs_tictactoe game)
 {
 	int win = 0;

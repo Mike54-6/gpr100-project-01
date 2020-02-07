@@ -76,19 +76,17 @@ void playGame(gs_tictactoe game)
 	do
 	{
 		int x;
-		cout << "Player 1 pick x coord: ";
-		cin >> x;
+		x = p1pickX();
 		if (x == 100)
 		{
-			exit(0);
+			quitGame();
 		}
 
 		int y;
-		cout << "Player 1 pick y coord: ";
-		cin >> y;
+		y = p1pickY();
 		if (y == 100)
 		{
-			exit(0);
+			quitGame();
 		}
 
 		int check = gs_tictactoe_getSpaceState(game, x, y);
@@ -113,15 +111,13 @@ void playGame(gs_tictactoe game)
 
 		if (win == 1)
 		{
-			cout << "Player 1 (X) wins!" << endl;
+			showWinner(1);
 			break;
 		}
 
-		cout << "Player 2 pick x coord: ";
-		cin >> x;
+		x = p2pickX();
 
-		cout << "Player 2 pick y coord: ";
-		cin >> y;
+		y = p2pickY();
 
 		check = gs_tictactoe_getSpaceState(game, x, y);
 
@@ -147,7 +143,7 @@ void playGame(gs_tictactoe game)
 
 		if (win == 1)
 		{
-			cout << "Player 2 (O) wins!" << endl;
+			showWinner(2);
 			break;
 		}
 
@@ -277,7 +273,8 @@ int launchTicTacToe()
 	gs_tictactoe game;// = { 0 };
 
 	gs_tictactoe_reset(game);
-	cout << "Type 100 at any time to quit" << endl;
+	quitPrompt();
+	drawGrid(3, 3);
 	playGame(game);
 
 	return 0;

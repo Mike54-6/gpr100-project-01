@@ -11,9 +11,8 @@ int launchBattleship();
 
 int main()
 {
-	/*cout << "Which game would you like to play? Type 1 for tic tac toe, or 2 for battleship" << endl;
 	int temp;
-	cin >> temp;
+	temp = chooseGame();
 	if (temp == 1)
 	{
 		launchTicTacToe();
@@ -21,7 +20,5 @@ int main()
 	else if (temp == 2)
 	{
 		launchBattleship();
-	}*/
-
-	drawGrid(8, 5);
+	}
 }

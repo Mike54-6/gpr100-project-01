@@ -85,7 +85,8 @@ int launchBattleship()
 {
 	gs_battleship game_player1;
 
-	cout << "Type 100 at any time to quit" << endl;
+	quitPrompt();
+	drawGrid(10, 10);
 	cout << "Player 1 picks coordinates" << endl;
 	gs_battleship_reset(game_player1);
 	cout << "Pick your patrol boat coords" << endl;
@@ -141,7 +142,7 @@ void placeShips(gs_battleship game, int num, int num2, int player)
 		cin >> x;
 		if (x == 100)
 		{
-			exit(0);
+			quitGame();
 		}
 
 		int y = 0;
@@ -149,7 +150,7 @@ void placeShips(gs_battleship game, int num, int num2, int player)
 		cin >> y;
 		if (y == 100)
 		{
-			exit(0);
+			quitGame();
 		}
 
 		gs_battleship_setSpaceState(game, gs_battleship_space_ship, player, x, y);
@@ -166,20 +167,18 @@ void pickShips1(gs_battleship game, int player)
 		cout << "Take your pick" << endl;
 		cout << "Player 1 pick" << endl;
 
-		int x = 0;
-		cout << "Pick x coord: ";
-		cin >> x;
+		int x;
+		x = p1pickX();
 		if (x == 100)
 		{
-			exit(0);
+			quitGame();
 		}
 
-		int y = 0;
-		cout << "Pick y coord: ";
-		cin >> y;
+		int y;
+		y = p1pickY();
 		if (y == 100)
 		{
-			exit(0);
+			quitGame();
 		}
 
 		char check = (char)gs_battleship_getSpaceState(game, player, x, y);
@@ -190,7 +189,7 @@ void pickShips1(gs_battleship game, int player)
 			P1totalShipsHit += 1;
 			if (P1totalShipsHit == 17)
 			{
-				cout << "Player 1 wins" << endl;
+				showWinner(1);
 				win = 1;
 				printBoard(game, player);
 			}
@@ -205,7 +204,7 @@ void pickShips1(gs_battleship game, int player)
 	}
 	else
 	{
-		cout << "Player two wins!" << endl;
+		showWinner(2);
 	}
 }
 
@@ -216,20 +215,18 @@ void pickShips2(gs_battleship game, int player)
 		cout << "Take your pick" << endl;
 		cout << "Player 2 pick" << endl;
 
-		int x = 0;
-		cout << "Pick x coord: ";
-		cin >> x;
+		int x;
+		x = p2pickX();
 		if (x == 100)
 		{
-			exit(0);
+			quitGame();
 		}
 
-		int y = 0;
-		cout << "Pick y coord: ";
-		cin >> y;
+		int y;
+		y = p2pickY();
 		if (y == 100)
 		{
-			exit(0);
+			quitGame();
 		}
 
 		char check = (char)gs_battleship_getSpaceState(game, player, x, y);
@@ -240,7 +237,7 @@ void pickShips2(gs_battleship game, int player)
 			P2totalShipsHit += 1;
 			if (P2totalShipsHit == 17)
 			{
-				cout << "Player two wins!" << endl;
+				showWinner(2);
 				win = 1;
 				printBoard(game, player);
 			}
@@ -255,7 +252,7 @@ void pickShips2(gs_battleship game, int player)
 	}
 	else
 	{
-		cout << "Player one wins!" << endl;
+		showWinner(1);
 	}
 }
 
